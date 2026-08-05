@@ -593,7 +593,11 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			if not skip then
 				if line[1] and line[1].handle then
 					SetDrawColor(1,1,1)
-					DrawImage(line[1].handle, line[2], line[3], line[4], line[5], line[1][1], line[1][2], line[1][3], line[1][4])
+					if line[1][1] then
+						DrawImage(line[1].handle, line[2], line[3], line[4], line[5], line[1][1], line[1][2], line[1][3], line[1][4])
+					else
+						DrawImage(line[1].handle, line[2], line[3], line[4], line[5])
+					end
 				else
 					DrawImage(line[1], line[2], line[3], line[4], line[5])
 				end
